@@ -19,11 +19,11 @@ class ReportController extends Controller
     {
         try {
             return entityResponse([
-                'total_product' => Product::count(),
-                'total_category' => ProductCategory::count(),
-                'total_order' => Order::count(),
-                'total_customer' => User::where('type', 'customer')->count(),
-                'total_payment' => Order::sum('amount'),
+                'total_product'             => Product::count(),
+                'total_category'            => ProductCategory::count(),
+                'total_order'               => Order::count(),
+                'total_customer'            => User::where('type', 'customer')->count(),
+                'total_payment'             => Order::sum('amount'),
                 'payment_summary_by_method' => Order::select('payment_method as name', DB::raw('SUM(amount) as amount'))->groupBy('payment_method')->get(),
             ]);
         } catch (Exception $e) {

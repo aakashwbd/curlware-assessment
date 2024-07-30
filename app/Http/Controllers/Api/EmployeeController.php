@@ -11,7 +11,15 @@ use Spatie\Permission\Models\Role;
 class EmployeeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @LRDparam get_all int|value:1
+     * // either space or pipe
+     * @LRDparam offset int
+     * // either space or pipe
+     * @LRDparam fields array
+     * // either space or pipe
+     * @LRDparam relations[] array
+     * // either space or pipe
+     * @LRDparam search string
      */
     public function index()
     {
@@ -78,7 +86,8 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @LRDparam fields array
+     * // either space or pipe
      */
     public function show(string $id)
     {

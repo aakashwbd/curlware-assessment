@@ -24,9 +24,9 @@ class AuthUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email:filter',
-            'phone' => 'sometimes',
+            'name'    => 'required',
+            'email'   => 'required|email:filter',
+            'phone'   => 'sometimes',
             'avatars' => 'sometimes|array',
         ];
     }

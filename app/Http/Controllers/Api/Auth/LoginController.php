@@ -25,7 +25,7 @@ class LoginController extends Controller
             }
             return entityResponse([
                 'token' => $user->createToken('authToken')->plainTextToken,
-                'user' => $user->only(['name', 'email', 'phone', 'avatars']),
+                'user'  => $user->only(['name', 'email', 'phone', 'avatars']),
             ], 201, 'success', 'Successfully logged in.');
         } catch (Exception $e) {
             return messageResponse($e->getMessage(), 500, 'server_error');
@@ -59,12 +59,12 @@ class LoginController extends Controller
             if (!$user = User::where('email', $providerUser->getEmail())->first()) {
                 $picture = $this->saveAvatar($providerUser['picture']);
                 $user    = User::create([
-                    'type' => 'customer',
-                    'provider' => $provider,
+                    'type'        => 'customer',
+                    'provider'    => $provider,
                     'provider_id' => $providerUser->getId(),
-                    'name' => $providerUser->getName(),
-                    'avatars' => $picture,
-                    'email' => $providerUser->getEmail(),
+                    'name'        => $providerUser->getName(),
+                    'avatars'     => $picture,
+                    'email'       => $providerUser->getEmail(),
                 ]);
                 $user->markEmailAsVerified();
             }

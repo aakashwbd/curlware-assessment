@@ -10,7 +10,19 @@ use Exception;
 class ProductCategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @LRDparam get_all int|value:1
+     * // either space or pipe
+     * @LRDparam offset int
+     * // either space or pipe
+     * @LRDparam fields array
+     * // either space or pipe
+     * @LRDparam relations[] array
+     * // either space or pipe
+     * @LRDparam is_featured int|value:1
+     * // either space or pipe
+     * @LRDparam children int|value:1
+     * // either space or pipe
+     * @LRDparam search string
      */
     public function index()
     {
@@ -51,7 +63,11 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @LRDparam key string|value:slug
+     * // either space or pipe
+     * * @LRDparam fields array
+     * // either space or pipe
+     * @LRDparam relations[] array
      */
     public function show(string $id)
     {

@@ -24,13 +24,13 @@ class EmployeeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'role_id' => 'sometimes|required',
-            'type' => 'sometimes|required',
-            'name' => 'sometimes|required',
-            'email' => 'sometimes|required|email:filter',
-            'phone' => 'sometimes',
+            'role_id'  => 'sometimes|required',
+            'type'     => 'sometimes|required',
+            'name'     => 'sometimes|required',
+            'email'    => 'sometimes|required|email:filter',
+            'phone'    => 'sometimes',
             'password' => 'sometimes',
-            'avatars' => 'sometimes|array',
+            'avatars'  => 'sometimes|array',
         ];
     }
 

@@ -24,11 +24,11 @@ class ProductCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'parent_id' => 'sometimes',
-            'name' => 'required',
+            'parent_id'   => 'sometimes',
+            'name'        => 'required',
             'is_featured' => 'sometimes|boolean',
             'attachments' => 'sometimes|array',
-            'status' => 'required|in:active,inactive',
+            'status'      => 'required|in:active,inactive',
         ];
     }
 

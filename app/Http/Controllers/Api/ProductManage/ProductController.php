@@ -12,9 +12,26 @@ use Illuminate\Support\Facades\Bus;
 
 class ProductController extends Controller
 {
-
     /**
-     * Display a listing of the resource.
+     * @LRDparam get_all int|value:1
+     * // either space or pipe
+     * @LRDparam offset int
+     * // either space or pipe
+     * @LRDparam fields array
+     * // either space or pipe
+     * @LRDparam relations[] array
+     * // either space or pipe
+     * @LRDparam is_featured int|value:1
+     * // either space or pipe
+     * @LRDparam category_id string
+     * // either space or pipe
+     * @LRDparam category_ids array
+     * // either space or pipe
+     * @LRDparam price_range array
+     * // either space or pipe
+     * @LRDparam rating int
+     * // either space or pipe
+     * @LRDparam search string
      */
     public function index()
     {
@@ -55,7 +72,11 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @LRDparam key string|value:slug
+     * // either space or pipe
+     * @LRDparam fields array
+     * // either space or pipe
+     * @LRDparam relations[] array
      */
     public function show(string $id)
     {

@@ -24,18 +24,18 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category_id' => 'required',
-            'name' => 'required',
-            'description' => 'sometimes',
-            'regular_price' => 'required',
+            'category_id'               => 'required',
+            'name'                      => 'required',
+            'description'               => 'sometimes',
+            'regular_price'             => 'required',
 
-            'discount_properties' => 'sometimes|array',
-            'discount_properties.type' => 'sometimes|in:percentage,flat',
+            'discount_properties'       => 'sometimes|array',
+            'discount_properties.type'  => 'sometimes|in:percentage,flat',
             'discount_properties.value' => 'sometimes',
 
-            'is_featured' => 'sometimes|boolean',
-            'attachments' => 'sometimes|array',
-            'status' => 'required|in:active,inactive',
+            'is_featured'               => 'sometimes|boolean',
+            'attachments'               => 'sometimes|array',
+            'status'                    => 'required|in:active,inactive',
         ];
     }
 

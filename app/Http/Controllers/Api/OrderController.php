@@ -14,7 +14,15 @@ use Leafwrap\PaymentDeals\Models\PaymentTransaction;
 class OrderController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @LRDparam get_all int|value:1
+     * // either space or pipe
+     * @LRDparam offset int
+     * // either space or pipe
+     * @LRDparam fields array
+     * // either space or pipe
+     * @LRDparam relations[] array
+     * // either space or pipe
+     * @LRDparam search string
      */
     public function index()
     {
@@ -98,7 +106,8 @@ class OrderController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @LRDparam fields array
+     * // either space or pipe
      */
     public function show(string $id)
     {
@@ -174,6 +183,15 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     * @LRDparam get_all int|value:1
+     * // either space or pipe
+     * @LRDparam offset int
+     * // override the default response codes
+     * @LRDparam fields array
+     * // override the default response codes
+     * @LRDparam search string
+     */
     public function getTransactions()
     {
         try {
@@ -186,10 +204,6 @@ class OrderController extends Controller
 
             if (request()->has('fields') && request()->input('fields')) {
                 $fields = gettype(request()->input('fields')) === 'array' ? request()->input('fields') : explode(',', request()->input('fields'));
-            }
-
-            if (request()->has('relations') && request()->input('relations')) {
-                $relations = gettype(request()->input('relations')) === 'array' ? request()->input('relations') : explode(',', request()->input('relations'));
             }
 
             if (request()->has('search') && request()->input('search')) {

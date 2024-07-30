@@ -26,9 +26,9 @@ class Product extends Model
     ];
 
     protected $casts = [
-        'attachments' => 'array',
+        'attachments'         => 'array',
         'discount_properties' => 'array',
-        'is_featured' => 'boolean',
+        'is_featured'         => 'boolean',
     ];
 
     protected static function booted()

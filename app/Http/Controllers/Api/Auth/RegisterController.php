@@ -34,7 +34,7 @@ class RegisterController extends Controller
             $user->update($request->validated());
             return entityResponse([
                 'token' => $user->createToken('authToken')->plainTextToken,
-                'user' => $user->only(['name', 'email', 'phone', 'avatars']),
+                'user'  => $user->only(['name', 'email', 'phone', 'avatars']),
             ], 201, 'success', 'Grate! The account has been updated.');
         } catch (Exception $e) {
             return messageResponse($e->getMessage(), 500, 'server_error');

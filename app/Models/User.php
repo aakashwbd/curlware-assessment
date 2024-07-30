@@ -53,14 +53,9 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'avatars' => 'array',
+            'password'          => 'hashed',
+            'avatars'           => 'array',
         ];
-    }
-
-    public function providers()
-    {
-        return $this->hasMany(Provider::class, 'user_id', 'id');
     }
 
     public function role()

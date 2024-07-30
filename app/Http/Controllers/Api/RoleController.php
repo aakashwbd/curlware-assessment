@@ -12,7 +12,15 @@ use Spatie\Permission\Models\Role;
 class RoleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @LRDparam get_all int|value:1
+     * // either space or pipe
+     * @LRDparam offset int
+     * // override the default response codes
+     * @LRDparam fields array
+     * // override the default response codes
+     * @LRDparam relations[] array
+     * // override the default response codes
+     * @LRDparam search string
      */
     public function index()
     {
@@ -77,7 +85,8 @@ class RoleController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @LRDparam fields array
+     * // override the default response codes
      */
     public function show(string $id)
     {
@@ -151,13 +160,10 @@ class RoleController extends Controller
     public function assignPermission(Request $request)
     {
         try {
-            // $user        = User::query()->where('id', auth()->id())->first();
             $role        = Role::query()->where('id', request()->input('role_id'))->first();
             $permissions = request()->input('permissions');
 
             $role->syncPermissions($permissions);
-            // $user->assignRole([$role->id]);
-
             return messageResponse('Great! The role has given permissions.', 201);
         } catch (Exception $e) {
             return messageResponse($e->getMessage(), 500, 'server_error');

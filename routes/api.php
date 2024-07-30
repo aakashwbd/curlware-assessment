@@ -91,7 +91,3 @@ Route::prefix('site')->group(function () {
  * Store and Get Media Files
  */
 Route::apiResource('media-files', FileController::class)->only(['index', 'store', 'destroy']);
-
-Route::prefix('reports')->group(function () {
-    Route::get('summary', [ReportController::class, 'summary']);
-});
